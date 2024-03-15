@@ -1,0 +1,40 @@
+version: 0.1
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: linux
+
+autosplit: true
+
+retryOnFailure: true
+maxRetries: 1
+
+concurrency: 1
+
+env:
+  CYPRESS_CACHE_FOLDER: cypressCache
+  PROJECT_TOKEN: "509662#28d5b3cb-2d59-466a-b58d-8d84b1767b6e#cypress-hyp-docs"
+
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
+  - cypressCache
+
+pre:
+  - npm i @lambdatest/smartui-cli @lambdatest/cypress-driver cypress@v13
+  - npx smartui config:create smartui-web.json
+
+post:
+  - cat hyp.yaml
+
+cypress: true
+
+testDiscovery:
+  type: raw
+  mode: static
+  command: echo "Hello"
+
+testRunnerCommand: npx smartui --config smartui-web.json exec -- npx cypress run --spec cypress/e2e/smartuiSDKLocal.cy.js --browser chrome --headed
+
+jobLabel: ["smart-ui-sdk", "hyperexecute", "cypress"]
