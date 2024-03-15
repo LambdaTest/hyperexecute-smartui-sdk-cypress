@@ -6,6 +6,7 @@ testSuiteStep: 90
 runson: linux
 
 autosplit: true
+cypress: true
 
 retryOnFailure: true
 maxRetries: 1
@@ -14,7 +15,7 @@ concurrency: 1
 
 env:
   CYPRESS_CACHE_FOLDER: cypressCache
-  PROJECT_TOKEN: "509662#28d5b3cb-2d59-466a-b58d-8d84b1767b6e#cypress-hyp-docs"
+  PROJECT_TOKEN: "YOUR_PROJECT_TOKEN"
 
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
@@ -26,9 +27,7 @@ pre:
   - npx smartui config:create smartui-web.json
 
 post:
-  - cat hyp.yaml
-
-cypress: true
+  - cat hyperexecute.yaml
 
 testDiscovery:
   type: raw
