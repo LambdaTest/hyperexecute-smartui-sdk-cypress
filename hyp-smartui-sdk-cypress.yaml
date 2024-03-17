@@ -27,7 +27,7 @@ pre:
   - npx smartui config:create smartui-web.json
 
 post:
-  - cat hyperexecute.yaml
+  - cat hyp-smartui-sdk-cypress.yaml
 
 testDiscovery:
   type: raw
