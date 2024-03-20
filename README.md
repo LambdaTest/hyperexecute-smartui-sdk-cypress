@@ -127,7 +127,7 @@ post:
 testDiscovery:
   type: raw
   mode: static
-  command: echo "Hello"
+  command: ls cypress/e2e
 
 testRunnerCommand: npx smartui --config smartui-web.json exec -- npx cypress run --spec cypress/e2e/smartuiSDKLocal.cy.js --browser chrome --headed
 
