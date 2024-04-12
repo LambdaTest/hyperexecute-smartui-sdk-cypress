@@ -26,6 +26,10 @@ pre:
   - npm i @lambdatest/smartui-cli @lambdatest/cypress-driver cypress@v13
   - npx smartui config:create smartui-web.json
 
+runtime:
+  language: node
+  version: '18.12.0'
+
 post:
   - cat hyp-smartui-sdk-cypress.yaml
 
